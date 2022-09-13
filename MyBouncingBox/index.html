@@ -1,0 +1,50 @@
+<html style="background-color: black">
+  <div
+    id="my_bouncing_box"
+    style="
+      background-color: blue;
+      border-radius: 3px;
+      position: absolute;
+      left: 0px;
+      top: 0px;
+      min-width: 100px;
+      min-height: 100px;
+      text-align: center;
+      font-weight: bold;
+      color: #999;
+    "
+  >
+    Not loaded
+  </div>
+  <script type="text/javascript">
+    let box = document.querySelector("#my_bouncing_box");
+    var xPos = 4;
+    var yPos = 4;
+    var xSpeed = 4;
+    var ySpeed = 4;
+
+    function move() {
+      box.style.left = xPos + "px";
+      box.style.top = yPos + "px";
+    }
+
+    setInterval(() => {
+      if (xPos + box.clientWidth >= window.innerWidth) {
+        xSpeed = -xSpeed;
+      }
+      if (yPos + box.clientHeight >= window.innerHeight) {
+        ySpeed = -ySpeed;
+      }
+      if (xPos <= 0) {
+        xSpeed = -xSpeed;
+      }
+      if (yPos <= 0) {
+        ySpeed = -ySpeed;
+      }
+
+      xPos += xSpeed;
+      yPos += ySpeed;
+      move();
+    }, 1000 / 90);
+  </script>
+</html>

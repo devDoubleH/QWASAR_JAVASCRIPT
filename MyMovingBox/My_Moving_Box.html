@@ -1,0 +1,28 @@
+<html>
+  <div
+    id="my_box_realtime"
+    style="
+      background-color: red;
+      position: absolute;
+      right: 70;
+      bottom: 70;
+      min-width: 100px;
+      min-height: 100px;
+    "
+  ></div>
+  <script type="text/javascript">
+    let i = document.querySelector("#my_box_realtime");
+
+    let pos = 70;
+    i.style.width = 100 + "px";
+    i.style.height = 100 + "px";
+
+    setInterval(() => {
+      i.style.position = "relative";
+      i.style.bottom = pos + "px";
+      i.style.right = pos + "px";
+      pos--;
+    }, 1);
+    
+  </script>
+</html>
